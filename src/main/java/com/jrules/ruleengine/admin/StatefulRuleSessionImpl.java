@@ -51,8 +51,10 @@ public class StatefulRuleSessionImpl implements StatefulRuleSession {
 
 	@Override
 	public void executeRules() throws RemoteException, InvalidRuleSessionException {
-		// TODO Auto-generated method stub
-
+		//条件匹配，计算出需要执行的规则，放入agenda
+		
+		
+		
 	}
 
 	@Override
@@ -94,8 +96,8 @@ public class StatefulRuleSessionImpl implements StatefulRuleSession {
 	@Override
 	public void updateObject(Handle arg0, Object arg1)
 			throws RemoteException, InvalidRuleSessionException, InvalidHandleException {
-		// TODO Auto-generated method stub
-
+		//对象发生变更时，重新计算规则执行集合
+		this.executeRules();
 	}
 
 }

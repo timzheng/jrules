@@ -1,6 +1,7 @@
 package com.jrules.ruleengine.admin;
 
 import java.rmi.RemoteException;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.rules.admin.LocalRuleExecutionSetProvider;
@@ -12,11 +13,12 @@ import javax.rules.admin.RuleExecutionSetRegisterException;
 
 public class RuleAdministratorImpl implements RuleAdministrator {
 
+	Map<String, RuleExecutionSet> ruleExecutionSetPool = new HashMap<String, RuleExecutionSet>(); 
+	
 	@Override
 	public void deregisterRuleExecutionSet(String arg0, Map arg1)
 			throws RuleExecutionSetDeregistrationException, RemoteException {
-		// TODO Auto-generated method stub
-
+		ruleExecutionSetPool.remove(arg0);
 	}
 
 	@Override
@@ -27,15 +29,14 @@ public class RuleAdministratorImpl implements RuleAdministrator {
 
 	@Override
 	public RuleExecutionSetProvider getRuleExecutionSetProvider(Map arg0) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		RuleExecutionSetProvider ruleExecutionSetProvider = new RuleExecutionSetProviderImpl();
+		return ruleExecutionSetProvider;
 	}
 
 	@Override
 	public void registerRuleExecutionSet(String arg0, RuleExecutionSet arg1, Map arg2)
 			throws RuleExecutionSetRegisterException, RemoteException {
-		// TODO Auto-generated method stub
-
+		ruleExecutionSetPool.put(arg0, arg1);
 	}
 
 }

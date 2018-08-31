@@ -32,7 +32,8 @@ public class RuleExecutionSetProviderImpl implements RuleExecutionSetProvider{
 			throws RuleExecutionSetCreateException, IOException, RemoteException {
 		// TODO Auto-generated method stub
 		RuleExecutionSetImpl ruleExecutionSet = new RuleExecutionSetImpl();
-		ruleExecutionSet.getName();
+		
+		ruleExecutionSet.setProperty(arg0, arg1);
 		
 		return ruleExecutionSet;
 	}
